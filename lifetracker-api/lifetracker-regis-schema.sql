@@ -8,12 +8,32 @@ CREATE TABLE users (
     created_at TIMESTAMP NOT NULL DEFAULT NOW())
     ;
 
--- CREATE TABLE NutritionalData (
---     id SERIAL PRIMARY KEY,
---     name TEXT NOT NULL,
 
+CREATE TABLE ExerciseData (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  category TEXT NOT NULL, 
+  duration INTEGER NOT NULL,
+  intensity INTEGER NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  user_id INTEGER REFERENCES users(id)
+);
 
+CREATE TABLE NutData (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  category TEXT NOT NULL, 
+  quantity INTEGER NOT NULL,
+  calories INTEGER NOT NULL,
+  imageurl TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  user_id INTEGER REFERENCES users(id)
+);
 
-    
---     created_at TIMESTAMP NOT NULL DEFAULT NOW())
---     ;
+CREATE TABLE SleepData (
+  id SERIAL PRIMARY KEY,
+  start_time TIMESTAMP NOT NULL,
+  end_time TIMESTAMP NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  user_id INTEGER REFERENCES users(id)
+);

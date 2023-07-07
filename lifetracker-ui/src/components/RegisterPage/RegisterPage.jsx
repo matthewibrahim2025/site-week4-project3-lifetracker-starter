@@ -2,7 +2,7 @@ import React from "react";
 import "./RegisterPage.css";
 import { useState } from "react";
 import axios from "axios";
-// import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 
 // import addRegisterInfo from "./addRegisterInfo";
@@ -42,6 +42,7 @@ const handleAddData = async (
     });
     console.log(res.data);
     // navigate('/activity');
+    window.location.href = '/activity';
   } catch (err) {
     console.log(err);
   }
@@ -122,7 +123,11 @@ export default function RegisterPage() {
               name="confirmpassword"
               required
             />
-            <button type="submit" href="/activity">Sign Up</button>
+            {/* <button type="submit">Sign Up</button> */}
+
+            {/* <Link to="/activity"> */}
+                <button type="submit">Sign Up</button>
+            {/* </Link> */}
           </div>
         </form>
       </div>

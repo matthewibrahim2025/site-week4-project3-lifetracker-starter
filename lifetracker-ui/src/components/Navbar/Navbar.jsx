@@ -1,9 +1,19 @@
-import codePathLogo from "/src/assets/codepath.svg"
-import "./Navbar.css"
+import codePathLogo from "/src/assets/codepath.svg";
+import "./Navbar.css";
 
+export default function Navbar({ isLogged, setIsLogged }) {
 
+  const handleLogout = (event) => {
+    event.preventDefault(); // Prevents the default form submission behavior
+    setIsLogged(false);
+    console.log(isLogged);
+    localStorage.removeItem("id");
+    window.location.href = "/";
+    
+  };
 
-export default function Navbar() {
+  
+
   return (
     <div class="Navbar css-15bu2in">
       <div class="css-70qvj9">
@@ -24,16 +34,32 @@ export default function Navbar() {
         </a>
       </div>
       <div class="css-70qvj9">
-        <a class="chakra-link css-spn4bz" href="/login">
-          <button type="button" class="chakra-button css-1t9i4zo">
-            Sign In
-          </button>
-        </a>
-        <a class="chakra-link css-spn4bz" href="/register">
-          <button type="button" class="chakra-button css-td8gbm">
-            Register
-          </button>
-        </a>
+        {isLogged ? (
+          <div>
+            <a class="chakra-link css-spn4bz" href="/">
+              <button
+                type="button"
+                class="chakra-button css-td8gbm"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </a>
+          </div>
+        ) : (
+          <div>
+            <a class="chakra-link css-spn4bz" href="/login">
+              <button type="button" class="chakra-button css-1t9i4zo">
+                Sign In
+              </button>
+            </a>
+            <a class="chakra-link css-spn4bz" href="/register">
+              <button type="button" class="chakra-button css-td8gbm">
+                Register
+              </button>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

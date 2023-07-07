@@ -15,6 +15,121 @@ class User {
     };
   }
 
+  static async addExer(name, category, duration, intensity, userId) {
+    const result = await db.query(
+      `
+      INSERT INTO ExerciseData (
+        name,
+        category,
+        duration,
+        intensity,
+        user_id
+      )
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING *
+      `,
+      [name, category, duration, intensity, userId]
+    );
+
+    const exercise = result.rows[0];
+    return exercise;
+  }
+
+
+  static async addSleep(startTime, endTime, userId) {
+    const result = await db.query(
+      `
+      INSERT INTO SleepData (
+        start_time,
+        end_time,
+        user_id
+      )
+      VALUES ($1, $2, $3)
+      RETURNING *
+      `,
+      [startTime, endTime, userId]
+    );
+
+    const exercise = result.rows[0];
+    return exercise;
+  }
+
+
+
+  static async addNut(name, category, quantity, calories, userId, imageurl) {
+    const result = await db.query(
+      `
+      INSERT INTO NutData (
+        name,
+        category,
+        quantity,
+        calories,
+        user_id,
+        imageurl
+      )
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING *
+      `,
+      [name, category, quantity, calories, userId, imageurl]
+    );
+
+    const nutrition = result.rows[0];
+    return nutrition;
+  }
+
+
+  static async displayExerInfo(userId) {
+    console.log(userId);
+    const query = `
+      SELECT *
+      FROM ExerciseData
+      WHERE user_id = $1 
+    `;
+
+    const result = await db.query(query, [userId]);
+
+    const exercise = result.rows;
+    return exercise;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  static async displayNutInfo(userId) {
+    console.log(userId);
+    const query = `
+      SELECT *
+      FROM NutData
+      WHERE user_id = $1 
+    `;
+
+    const result = await db.query(query, [userId]);
+
+    const nutrition = result.rows;
+    return nutrition;
+  }
+
+  static async displaySleepInfo(userId) {
+    console.log(userId);
+    const query = `
+      SELECT *
+      FROM SleepData
+      WHERE user_id = $1 
+    `;
+
+    const result = await db.query(query, [userId]);
+
+    const sleep = result.rows;
+    return sleep;
+  }
+
   static async login(credentials) {
     // user should submit their email and password
     // if any of these fields are missing, throw an error
