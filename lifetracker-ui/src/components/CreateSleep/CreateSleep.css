@@ -1,0 +1,41 @@
+.sleepRecordContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .sleepRecordForm {
+    background-color: #f5f5f5;
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  .sleepRecordTitle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formLabel {
+    font-size: 16px;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    background-color: #319795;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #276f6d;
+  }
+  

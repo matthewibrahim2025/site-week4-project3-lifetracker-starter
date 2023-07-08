@@ -13,8 +13,6 @@ const handleLogin = async (event, email, password, id, setId, setIsLogged) => {
       password: password,
     });
 
-    
-
     // setId(res.data.user.id);
     // console.log(res.data.user.id);
 
@@ -24,31 +22,32 @@ const handleLogin = async (event, email, password, id, setId, setIsLogged) => {
     // console.log(res.data.user.id);
     // console.log(id);
 
-    
     window.location.href = "/activity";
   } catch (err) {
     console.log(err);
   }
 };
 
-export default function SignInPage({id, setId, setIsLogged}) {
+export default function SignInPage({ id, setId, setIsLogged }) {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
 
   return (
     <div className="signIn-container">
-      <h2 class="chakra-heading css-3q8efk">Create an Account</h2>
+      <h2 className="signIn-heading">Sign In</h2>
 
-      <div class="signIn-sect">
-        <form onSubmit={(event) => handleLogin(event, email, password, id, setId, setIsLogged)}>
-          {/* <div class="signIn-contents"> */}
-
+      <div className="signIn-section">
+        <form
+          className="signIn-form"
+          onSubmit={(event) =>
+            handleLogin(event, email, password, id, setId, setIsLogged)
+          }
+        >
           <input
             type="text"
-            //   value={email}
+            className="signIn-input"
             placeholder="Email"
-            //   name="email"
             required
             onChange={(event) => {
               event.preventDefault();
@@ -57,18 +56,18 @@ export default function SignInPage({id, setId, setIsLogged}) {
           />
           <input
             type="password"
-            //   value={password}
+            className="signIn-input"
             placeholder="Password"
-            //   name="password"
             required
             onChange={(event) => {
               event.preventDefault();
               setPassword(event.target.value);
             }}
           />
-          {/* </div> */}
 
-          <button type="submit">Login</button>
+          <button type="submit" className="signIn-button">
+            Login
+          </button>
         </form>
       </div>
     </div>

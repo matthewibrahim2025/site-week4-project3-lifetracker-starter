@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+
+  }
+
+.activityPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+  }
+  
+
+.activitySummary {
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent; /* Remove the gray background */
+}
+
+.activityTitle {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2e8ece;
+  margin-bottom: 20px;
+}
+
+.activityMetricBox {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.exerciseMetric {
+  background-color: #ffda79;
+}
+
+.calorieMetric {
+  background-color: #ff93ac;
+}
+
+.sleepMetric {
+  background-color: #81d4fa;
+}
+
+.activityMetricTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.metricValue {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+}

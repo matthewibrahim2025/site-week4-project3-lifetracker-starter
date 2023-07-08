@@ -15,52 +15,53 @@ export default function Navbar({ isLogged, setIsLogged }) {
   
 
   return (
-    <div class="Navbar css-15bu2in">
-      <div class="css-70qvj9">
-        <a class="chakra-link css-14rj303" href="/">
-          <img src={codePathLogo} alt="logo" />
-        </a>
-        <a class="chakra-link css-74uit1" href="/activity">
-          Activity
-        </a>
-        <a class="chakra-link css-74uit1" href="/exercise">
-          Exercise
-        </a>
-        <a class="chakra-link css-74uit1" href="/nutrition">
-          Nutrition
-        </a>
-        <a class="chakra-link css-74uit1" href="/sleep">
-          Sleep
+<div class="navbar">
+  <div class="navbar-menu">
+    <a class="navbar-link" href="/">
+      <img src={codePathLogo} alt="logo" />
+    </a>
+    <a class="navbar-link" href="/activity">
+      Activity
+    </a>
+    <a class="navbar-link" href="/exercise">
+      Exercise
+    </a>
+    <a class="navbar-link" href="/nutrition">
+      Nutrition
+    </a>
+    <a class="navbar-link" href="/sleep">
+      Sleep
+    </a>
+  </div>
+  <div class="navbar-menu">
+    {isLogged ? (
+      <div>
+        <a class="navbar-link" href="/">
+          <button
+            type="button"
+            class="navbar-button"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </a>
       </div>
-      <div class="css-70qvj9">
-        {isLogged ? (
-          <div>
-            <a class="chakra-link css-spn4bz" href="/">
-              <button
-                type="button"
-                class="chakra-button css-td8gbm"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </a>
-          </div>
-        ) : (
-          <div>
-            <a class="chakra-link css-spn4bz" href="/login">
-              <button type="button" class="chakra-button css-1t9i4zo">
-                Sign In
-              </button>
-            </a>
-            <a class="chakra-link css-spn4bz" href="/register">
-              <button type="button" class="chakra-button css-td8gbm">
-                Register
-              </button>
-            </a>
-          </div>
-        )}
+    ) : (
+      <div>
+        <a class="navbar-link" href="/login">
+          <button type="button" class="navbar-button">
+            Sign In
+          </button>
+        </a>
+        <a class="navbar-link" href="/register">
+          <button type="button" class="navbar-button">
+            Register
+          </button>
+        </a>
       </div>
-    </div>
+    )}
+  </div>
+</div>
+
   );
 }

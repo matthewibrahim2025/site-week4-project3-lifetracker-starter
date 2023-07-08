@@ -1,77 +1,47 @@
-.tiles {
+.landingPage {
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  gap: 20px;
+  justify-content: center;
+  height: 100vh;
 }
 
-
-/* <style> */
-.css-16ecvb5 {
-    max-width: 1200px;
+.landingTitle {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-/* <style> */
-.css-16ecvb5 {
-    display: flex;
-    flex-direction: column;
-    -webkit-box-align: center;
-    align-items: center;
-    margin: 0px auto;
-}
-/* <style> */
-
-:where(*) {
-    border-width: 0px;
-    border-style: solid;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-}
-/* <style> */
-
-*, ::before, ::after {
-    border-color: var(--chakra-colors-chakra-border-color);
+.landingSubtitle {
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
-.css-18rb735 > :not(style) ~ :not(style) {
-  margin-top: var(--chakra-space-4);
-  margin-inline: 0px;
-  margin-bottom: 0px;
-}
-
-.css-jocq0n {
-  width: 50%;
-  height : 10%;
-  margin-bottom: 0px;
-}
-css-incex5 {
-  border-radius: 1rem;
-  box-shadow: var(--chakra-shadows-2xl);
-}
-/* <style> */
-img {
-  border-style: none;
-}
-
-:where(img, video) {
-  max-width: 100%;
+.landingPhoto {
+  width: 70%; /* Adjust the width as needed */
+  max-width: 600px; /* Adjust the maximum width as needed */
   height: auto;
-}
-/* <style> */
-:where(img, svg, video, canvas, audio, iframe, embed, object) {
-  display: block;
+  margin-bottom: 40px;
 }
 
-
-#tracker-pic {
-  width: 50%;
-  /* margin-bottom: 0px; */
+.landingBlurb {
+  font-size: 18px;
+  margin-bottom: 40px;
+  max-width: 600px; /* Adjust the maximum width as needed */
 }
 
+.landingButton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #e91e63;
+  color: #fff;
+  border-radius: 5px;
+}
 
-/* @media screen and (min-width: 48em) */
-
-#tracker-pic {
-    width: 150%;
-    margin-bottom: 0px;
+.landingButton:hover {
+  background-color: #c2185b;
 }

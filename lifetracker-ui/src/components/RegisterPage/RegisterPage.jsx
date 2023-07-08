@@ -57,80 +57,88 @@ export default function RegisterPage() {
 
   return (
     <div className="login-container">
-      <h2 class="chakra-heading css-3q8efk">Create an Account</h2>
+  <h2 className="login-heading">Create an Account</h2>
 
-      <div class="login-sect">
-      <form onSubmit={(event) => handleAddData(event, email, username, first_name, last_name, password)}>
-          <div class="login-contents">
-            <input
-              type="text"
-              //   value={email}
-              placeholder="Email"
-              //   name="email"
-              required
-              onChange={(event) => {
-                event.preventDefault();
-                setEmail(event.target.value);
-              }}
-            />
-            <input
-              type="text"
-              //   value={username}
-              placeholder="Username"
-              //   name="username"
-              required
-              onChange={(event) => {
-                event.preventDefault();
-                setUserName(event.target.value);
-              }}
-            />
-            <input
-              type="text"
-              //   value={first_name}
-              placeholder="First Name"
-              //   name="first_name"
-              required
-              onChange={(event) => {
-                event.preventDefault();
-                setFirstName(event.target.value);
-              }}
-            />
-            <input
-              type="text"
-              //   value={last_name}
-              placeholder="Last Name"
-              //   name="last_name"
-              required
-              onChange={(event) => {
-                event.preventDefault();
-                setLastName(event.target.value);
-              }}
-            />
-            <input
-              type="password"
-              //   value={password}
-              placeholder="Password"
-              //   name="password"
-              required
-              onChange={(event) => {
-                event.preventDefault();
-                setPassword(event.target.value);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              name="confirmpassword"
-              required
-            />
-            {/* <button type="submit">Sign Up</button> */}
+  <div className="login-section">
+    <form
+      className="login-form"
+      onSubmit={(event) =>
+        handleAddData(
+          event,
+          email,
+          username,
+          first_name,
+          last_name,
+          password
+        )
+      }
+    >
+      <div className="login-contents">
+        <input
+          type="text"
+          className="login-input"
+          placeholder="Email"
+          required
+          onChange={(event) => {
+            event.preventDefault();
+            setEmail(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          className="login-input"
+          placeholder="Username"
+          required
+          onChange={(event) => {
+            event.preventDefault();
+            setUserName(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          className="login-input"
+          placeholder="First Name"
+          required
+          onChange={(event) => {
+            event.preventDefault();
+            setFirstName(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          className="login-input"
+          placeholder="Last Name"
+          required
+          onChange={(event) => {
+            event.preventDefault();
+            setLastName(event.target.value);
+          }}
+        />
+        <input
+          type="password"
+          className="login-input"
+          placeholder="Password"
+          required
+          onChange={(event) => {
+            event.preventDefault();
+            setPassword(event.target.value);
+          }}
+        />
+        <input
+          type="password"
+          className="login-input"
+          placeholder="Confirm Password"
+          name="confirmpassword"
+          required
+        />
 
-            {/* <Link to="/activity"> */}
-                <button type="submit">Sign Up</button>
-            {/* </Link> */}
-          </div>
-        </form>
+        <button type="submit" className="login-button">
+          Sign Up
+        </button>
       </div>
-    </div>
+    </form>
+  </div>
+</div>
+
   );
 }

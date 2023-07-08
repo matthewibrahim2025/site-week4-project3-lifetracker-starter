@@ -1,6 +1,44 @@
-.SleepPage .button {
+.exercisePage {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
 }
-.SleepPage .button button {
-  flex: 1;
+
+.exerciseHeader {
+  margin-bottom: 20px;
+}
+
+.exerciseHeading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.exerciseContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exerciseAction {
+  margin-top: 20px;
+}
+
+.exerciseLink {
+  text-decoration: none;
+}
+
+.exerciseButton {
+  padding: 10px 20px;
+  border: none;
+  background-color: #319795;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exerciseButton:hover {
+  background-color: #238583;
 }

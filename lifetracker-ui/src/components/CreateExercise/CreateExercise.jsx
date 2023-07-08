@@ -5,31 +5,20 @@ import "./CreateExercise.css";
 import { useState } from "react";
 import axios from "axios";
 
-const CreateExercise = ({id}) => {
+const CreateExercise = ({ id }) => {
   console.log(id, "create exer page");
-  const handleAddData = async (event, name, category, duration, intensity, id) => {
-    
+  const handleAddData = async (
+    event,
+    name,
+    category,
+    duration,
+    intensity,
+    id
+  ) => {
     try {
       console.log("THIS ID IS: " + id);
-      // // const navigate = useNavigate();
-      // event.preventDefault();
-      // const res = await axios.post(`http://localhost:3001/auth/exercise`, {
-      //   name: name,
-      //   category: category,
-      //   duration: duration,
-      //   intensity: intensity,
-      // });
-      // console.log(res.data);
-      // // Handle form submission, e.g., send data to server or update state
-      // // You can access the selected values as name, category, duration, and intensity
-      // // Reset the form values
-      // setName("");
-      // setCategory("run");
-      // setDuration(0);
-      // setIntensity(0);
+
       event.preventDefault();
-
-
 
       const res = await axios.post(`http://localhost:3001/auth/exercise`, {
         name: name,
@@ -39,12 +28,8 @@ const CreateExercise = ({id}) => {
         userId: id,
       });
 
-      
       console.log(res.data);
-      // setName("");
-      // setCategory("run");
-      // setDuration(0);
-      // setIntensity(0);
+
       window.location.href = "/exercise";
     } catch (err) {
       console.log(err);
@@ -108,63 +93,90 @@ const CreateExercise = ({id}) => {
   // };
 
   return (
-    <div>
-      <h2>Add Exercise</h2>
+    <div class="addExerciseContainer">
+      <div class="addExerciseHeader">
+        <h2>Add Exercise</h2>
+      </div>
       <form
-        onSubmit={(event) => handleAddData(event, name, category, duration, intensity, id)}
+        class="addExerciseForm"
+        onSubmit={(event) =>
+          handleAddData(event, name, category, duration, intensity, id)
+        }
       >
-        <label>
-          Name:
-          <input type="text" value={name} onChange={handleNameChange} />
-        </label>
-        <br />
-        <label>
-          Category:
-          <select value={category} onChange={handleCategoryChange}>
-            <option value="run">Run</option>
-            <option value="bike">Bike</option>
-            <option value="lift">Lift</option>
-            <option value="swim">Swim</option>
-            <option value="sports">Sports</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Duration (minutes):
-          <button type="button" onClick={handleDurationDecrement}>
-            -
+        <div class="formGroup">
+          <label class="formLabel">
+            Name:
+            <input
+              type="text"
+              class="formInput"
+              value={name}
+              onChange={handleNameChange}
+            />
+          </label>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel">
+            Category:
+            <select
+              class="formSelect"
+              value={category}
+              onChange={handleCategoryChange}
+            >
+              <option value="run">Run</option>
+              <option value="bike">Bike</option>
+              <option value="lift">Lift</option>
+              <option value="swim">Swim</option>
+              <option value="sports">Sports</option>
+            </select>
+          </label>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel">
+            Duration (minutes):
+            <div class="numberInput">
+              <button type="button" onClick={handleDurationDecrement}>
+                -
+              </button>
+              <input
+                type="number"
+                min="0"
+                max="60"
+                class="formInput"
+                value={duration}
+                onChange={handleDurationChange}
+              />
+              <button type="button" onClick={handleDurationIncrement}>
+                +
+              </button>
+            </div>
+          </label>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel">
+            Intensity (0-10):
+            <div class="numberInput">
+              <button type="button" onClick={handleIntensityDecrement}>
+                -
+              </button>
+              <input
+                type="number"
+                min="0"
+                max="10"
+                class="formInput"
+                value={intensity}
+                onChange={handleIntensityChange}
+              />
+              <button type="button" onClick={handleIntensityIncrement}>
+                +
+              </button>
+            </div>
+          </label>
+        </div>
+        <div class="formGroup">
+          <button type="submit" class="submitButton">
+            Add
           </button>
-          <input
-            type="number"
-            min="0"
-            max="60"
-            value={duration}
-            onChange={handleDurationChange}
-          />
-          <button type="button" onClick={handleDurationIncrement}>
-            +
-          </button>
-        </label>
-        <br />
-        <label>
-          Intensity (0-10):
-          <button type="button" onClick={handleIntensityDecrement}>
-            -
-          </button>
-          <input
-            type="number"
-            min="0"
-            max="10"
-            value={intensity}
-            onChange={handleIntensityChange}
-          />
-          <button type="button" onClick={handleIntensityIncrement}>
-            +
-          </button>
-        </label>
-        <br />
-
-        <button type="submit">Add</button>
+        </div>
       </form>
     </div>
   );

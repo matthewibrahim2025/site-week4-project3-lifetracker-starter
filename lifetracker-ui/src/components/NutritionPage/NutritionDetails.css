@@ -1,0 +1,64 @@
+.nutritionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+  }
+  
+  .nutritionList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nutritionItem {
+    background-color: #319795;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 400px;
+  }
+  
+  .itemLabel {
+    font-weight: bold;
+  }
+  
+  .itemValue {
+    margin-left: 10px;
+  }
+  
+  .itemValue {
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .itemTitle {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+
+
+  
+  .itemLabel {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  
+  .itemValue {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  
+  .itemImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  

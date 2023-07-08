@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import bikePath from "../../assets/bikepath-ebe31266.jpg";
+import "./NutritionDetails.css";
 
 export const NutritionDetails = ({ id }) => {
   const [nutrition, setNutrition] = useState(null);
 
   let avgCals = 0;
-
 
   useEffect(() => {
     const fetchNutritionDetails = async () => {
@@ -22,49 +21,41 @@ export const NutritionDetails = ({ id }) => {
     };
 
     fetchNutritionDetails();
-  }, [id]); 
+  }, [id]);
 
-  nutrition && nutrition.length > 0 && nutrition.map((nutrition) => (
-    avgCals = avgCals + nutrition.calories
-  ))
+  nutrition &&
+    nutrition.length > 0 &&
+    nutrition.map((nutrition) => (avgCals = avgCals + nutrition.calories));
 
   if (avgCals > 0 && nutrition && nutrition.length > 0) {
-    avgCals = avgCals/nutrition.length;
-    
-    
-  } 
-  
-useEffect(() => {
-  localStorage.setItem("avgCals", (avgCals.toFixed(2)));
-}, [avgCals]);
+    avgCals = avgCals / nutrition.length;
+  }
+
+  useEffect(() => {
+    localStorage.setItem("avgCals", avgCals.toFixed(2));
+  }, [avgCals]);
 
   // console.log((avgCals));
-  
-  
 
   return (
-    <div>
-      {(nutrition && nutrition.length > 0) ? (
-        <div>
-          {nutrition.map((nutrition) => (
-            <div>
-              <p>Name: {nutrition.name}</p>
-              <p>Category: {nutrition.category}</p>
-              <p>Quantity: {nutrition.quantity} minutes</p>
-              <p>Calories: {nutrition.calories}</p>
-              <p>Image: {nutrition.imageurl}</p>
-              <p>Created At: {nutrition.created_at}</p>
-            </div>
-          ))}
-          ;
+<div className="nutritionContainer">
+  {nutrition && nutrition.length > 0 ? (
+    <div className="nutritionList">
+      {nutrition.map((nutrition) => (
+        <div className="nutritionItem">
+          <p className="itemLabel">Name: </p>
+          <p className="itemValue">{nutrition.name}</p>
+          <p className="itemLabel">Quantity: </p>
+          <p className="itemValue">{nutrition.quantity} minutes</p>
+          <p className="itemLabel">Calories: </p>
+          <p className="itemValue">{nutrition.calories}</p>
+          <p className="itemLabel">Image: </p>
+          <img src={nutrition.imageurl} alt="Nutrition Image" className="itemImage" />
         </div>
+      ))}
+    </div>
       ) : (
-        <div>
-          <h2 class="chakra-heading css-hzsul0">Nothing here yet.</h2>
-          {/* <img src={bikePath} className="chakra-image css-ni3ua3 smaller-img" /> */}
-
-          {/* <p>Loading exercise details...</p> */}
-        </div>
+        <p>No nutrition items found.</p>
       )}
     </div>
   );

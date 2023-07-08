@@ -502,10 +502,10 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
         - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
-      - [ ] Write test cases for:
-        - [ ] Can create valid JWT tokens for user payloads
-        - [ ] Can extract a payload from a valid JWT with the correct secret
-        - [ ] No payload gets returned when invalid tokens are parsed
+      - [x] Write test cases for:
+        - [x] Can create valid JWT tokens for user payloads
+        - [x] Can extract a payload from a valid JWT with the correct secret
+        - [x] No payload gets returned when invalid tokens are parsed
     - [ ] In the `utils/tokens.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`

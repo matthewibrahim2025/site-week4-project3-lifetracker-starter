@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import "./CreateSleep.css";
 
 const CreateSleep = ({ id }) => {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
 
-  const handleAddData = async (event, startTime, endTime,id) => {
+  const handleAddData = async (event, startTime, endTime, id) => {
     event.preventDefault();
 
     try {
@@ -24,34 +25,41 @@ const CreateSleep = ({ id }) => {
   };
 
   return (
-    <div>
-      <h2>Add Sleep Record</h2>
-      <form 
-      onSubmit={(event) => handleAddData(event, startTime, endTime, id)}
+    <div class="sleepRecordContainer">
+      <h2 class="sleepRecordTitle">Add Sleep Record</h2>
+      <form
+        class="sleepRecordForm"
+        onSubmit={(event) => handleAddData(event, startTime, endTime, id)}
       >
-        <label>
-          Start Time:
-          <br />
-          <DatePicker
-            selected={startTime}
-            onChange={(date) => setStartTime(date)}
-            showTimeSelect
-            dateFormat="MM/dd/yyyy, h:mm aa"
-          />
-        </label>
-        <br />
-        <label>
-          End Time:
-          <br />
-          <DatePicker
-            selected={endTime}
-            onChange={(date) => setEndTime(date)}
-            showTimeSelect
-            dateFormat="MM/dd/yyyy, h:mm aa"
-          />
-        </label>
-        <br />
-        <button type="submit">Save</button>
+        <div class="formGroup">
+          <label class="formLabel">
+            Start Time:
+            <br />
+            <DatePicker
+              selected={startTime}
+              onChange={(date) => setStartTime(date)}
+              showTimeSelect
+              dateFormat="MM/dd/yyyy, h:mm aa"
+            />
+          </label>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel">
+            End Time:
+            <br />
+            <DatePicker
+              selected={endTime}
+              onChange={(date) => setEndTime(date)}
+              showTimeSelect
+              dateFormat="MM/dd/yyyy, h:mm aa"
+            />
+          </label>
+        </div>
+        <div class="formGroup">
+          <button class="submitButton" type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );
