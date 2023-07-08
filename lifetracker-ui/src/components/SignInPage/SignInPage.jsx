@@ -8,10 +8,13 @@ const handleLogin = async (event, email, password, id, setId, setIsLogged) => {
   try {
     event.preventDefault();
 
-    const res = await axios.post(`http://localhost:3001/auth/login`, {
-      email: email,
-      password: password,
-    });
+    const res = await axios.post(
+      `https://lifetracker-backend-4wt1.onrender.com/auth/login`,
+      {
+        email: email,
+        password: password,
+      }
+    );
 
     // setId(res.data.user.id);
     // console.log(res.data.user.id);

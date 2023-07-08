@@ -13,7 +13,7 @@ export const ExerciseDetails = ({ id }) => {
     const fetchExerciseDetails = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/auth/exercise/${id}`
+          `https://lifetracker-backend-4wt1.onrender.com/auth/exercise/${id}`
         );
         console.log(res.data.exercise);
         setExercise(res.data.exercise);

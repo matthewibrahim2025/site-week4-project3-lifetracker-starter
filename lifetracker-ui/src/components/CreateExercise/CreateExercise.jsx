@@ -20,13 +20,16 @@ const CreateExercise = ({ id }) => {
 
       event.preventDefault();
 
-      const res = await axios.post(`http://localhost:3001/auth/exercise`, {
-        name: name,
-        category: category,
-        duration: duration,
-        intensity: intensity,
-        userId: id,
-      });
+      const res = await axios.post(
+        `https://lifetracker-backend-4wt1.onrender.com/auth/exercise`,
+        {
+          name: name,
+          category: category,
+          duration: duration,
+          intensity: intensity,
+          userId: id,
+        }
+      );
 
       console.log(res.data);
 

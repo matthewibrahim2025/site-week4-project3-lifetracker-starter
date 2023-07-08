@@ -11,7 +11,9 @@ export const SleepDetails = ({ id }) => {
   useEffect(() => {
     const fetchSleepDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/auth/sleep/${id}`);
+        const res = await axios.get(
+          `https://lifetracker-backend-4wt1.onrender.com/auth/sleep/${id}`
+        );
         console.log(res.data.sleep);
         setSleep(res.data.sleep);
       } catch (err) {
@@ -47,41 +49,41 @@ export const SleepDetails = ({ id }) => {
   }
   function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
   }
-  
+
   function formatTime(dateString) {
     const date = new Date(dateString);
-    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
-    return date.toLocaleTimeString('en-US', options);
+    const options = { hour: "numeric", minute: "numeric", hour12: true };
+    return date.toLocaleTimeString("en-US", options);
   }
-  
+
   // Rest of your component code...
-  
 
   return (
-<div class="sleepRecordsContainer">
-  {(sleep && sleep.length > 0) ? (
-    <div class="sleepRecordsBox">
-      {sleep.map((sleep, index) => (
-        <div class="sleepRecord" key={index}>
-          <p class="recordDate">{formatDate(sleep.start_time)}</p>
-          <div class="recordDetails">
-            <p>
-              Start Time: <span class="recordTime">{formatTime(sleep.start_time)}</span>
-            </p>
-            <p>
-              End Time: <span class="recordTime">{formatTime(sleep.end_time)}</span>
-            </p>
-          </div>
+    <div class="sleepRecordsContainer">
+      {sleep && sleep.length > 0 ? (
+        <div class="sleepRecordsBox">
+          {sleep.map((sleep, index) => (
+            <div class="sleepRecord" key={index}>
+              <p class="recordDate">{formatDate(sleep.start_time)}</p>
+              <div class="recordDetails">
+                <p>
+                  Start Time:{" "}
+                  <span class="recordTime">{formatTime(sleep.start_time)}</span>
+                </p>
+                <p>
+                  End Time:{" "}
+                  <span class="recordTime">{formatTime(sleep.end_time)}</span>
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <p>No sleep records found.</p>
+      )}
     </div>
-  ) : (
-    <p>No sleep records found.</p>
-  )}
-</div>
-
   );
 };

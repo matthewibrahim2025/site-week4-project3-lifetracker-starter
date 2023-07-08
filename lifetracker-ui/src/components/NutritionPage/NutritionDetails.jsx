@@ -11,7 +11,7 @@ export const NutritionDetails = ({ id }) => {
     const fetchNutritionDetails = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/auth/nutrition/${id}`
+          `https://lifetracker-backend-4wt1.onrender.com/auth/nutrition/${id}`
         );
         console.log(res.data.nutrition);
         setNutrition(res.data.nutrition);
@@ -38,22 +38,26 @@ export const NutritionDetails = ({ id }) => {
   // console.log((avgCals));
 
   return (
-<div className="nutritionContainer">
-  {nutrition && nutrition.length > 0 ? (
-    <div className="nutritionList">
-      {nutrition.map((nutrition) => (
-        <div className="nutritionItem">
-          <p className="itemLabel">Name: </p>
-          <p className="itemValue">{nutrition.name}</p>
-          <p className="itemLabel">Quantity: </p>
-          <p className="itemValue">{nutrition.quantity} minutes</p>
-          <p className="itemLabel">Calories: </p>
-          <p className="itemValue">{nutrition.calories}</p>
-          <p className="itemLabel">Image: </p>
-          <img src={nutrition.imageurl} alt="Nutrition Image" className="itemImage" />
+    <div className="nutritionContainer">
+      {nutrition && nutrition.length > 0 ? (
+        <div className="nutritionList">
+          {nutrition.map((nutrition) => (
+            <div className="nutritionItem">
+              <p className="itemLabel">Name: </p>
+              <p className="itemValue">{nutrition.name}</p>
+              <p className="itemLabel">Quantity: </p>
+              <p className="itemValue">{nutrition.quantity} minutes</p>
+              <p className="itemLabel">Calories: </p>
+              <p className="itemValue">{nutrition.calories}</p>
+              <p className="itemLabel">Image: </p>
+              <img
+                src={nutrition.imageurl}
+                alt="Nutrition Image"
+                className="itemImage"
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
       ) : (
         <p>No nutrition items found.</p>
       )}

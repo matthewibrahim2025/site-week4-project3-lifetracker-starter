@@ -10,11 +10,14 @@ const CreateSleep = ({ id }) => {
     event.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3001/auth/sleep", {
-        startTime: startTime,
-        endTime: endTime,
-        userId: id,
-      });
+      const res = await axios.post(
+        "https://lifetracker-backend-4wt1.onrender.com/auth/sleep",
+        {
+          startTime: startTime,
+          endTime: endTime,
+          userId: id,
+        }
+      );
       console.log(res.data);
       window.location.href = "/sleep";
     } catch (err) {
