@@ -5,11 +5,12 @@ import axios from "axios";
 import "./CreateSleep.css";
 
 const CreateSleep = ({ id }) => {
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
-
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+console.log(startTime);
   const handleAddData = async (event, startTime, endTime, id) => {
     event.preventDefault();
+
 
     try {
       const res = await axios.post("http://localhost:3001/auth/sleep", {
@@ -24,6 +25,15 @@ const CreateSleep = ({ id }) => {
     }
   };
 
+  const handleStartTime = (event) => {
+    setStartTime(event.target.value);
+  }
+
+  const handleEndTime = (event) => {
+    // event.preventdefault();
+    setEndTime(event.target.value);
+  }
+
   return (
     <div class="sleepRecordContainer">
       <h2 class="sleepRecordTitle">Add Sleep Record</h2>
@@ -35,11 +45,11 @@ const CreateSleep = ({ id }) => {
           <label class="formLabel">
             Start Time:
             <br />
-            <DatePicker
+            <input type="datetime-local"
               selected={startTime}
-              onChange={(date) => setStartTime(date)}
-              showTimeSelect
-              dateFormat="MM/dd/yyyy, h:mm aa"
+              onChange={(event) => handleStartTime(event)}
+              // showTimeSelect
+              // dateFormat="MM/dd/yyyy, h:mm aa"
             />
           </label>
         </div>
@@ -47,11 +57,11 @@ const CreateSleep = ({ id }) => {
           <label class="formLabel">
             End Time:
             <br />
-            <DatePicker
+            <input type="datetime-local"
               selected={endTime}
-              onChange={(date) => setEndTime(date)}
-              showTimeSelect
-              dateFormat="MM/dd/yyyy, h:mm aa"
+              onChange={(event) => handleEndTime(event)}
+              // showTimeSelect
+              // dateFormat="MM/dd/yyyy, h:mm aa"
             />
           </label>
         </div>
