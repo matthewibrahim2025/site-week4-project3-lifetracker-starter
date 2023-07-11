@@ -8,7 +8,7 @@ CREATE TABLE users (
     created_at TIMESTAMP NOT NULL DEFAULT NOW())
     ;
 
-
+-- make a comment
 CREATE TABLE ExerciseData (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
